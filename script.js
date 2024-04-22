@@ -17,8 +17,8 @@ function setup() {
   createCanvas(600, 400);
   player1 = new Player(width/2, height * 4/5);
   console.log(player1);
-  gameTimer = new Timer(10000); // 10 seconds for now
-  dropTimer = new Timer(500);
+  gameTimer = new Timer(30000); // 30 seconds for now
+  dropTimer = new Timer(1000); // drop every second
   testBox = new Box(width/2, height/3);
 
 }
@@ -92,7 +92,7 @@ function play() {
     }
   }
   textAlign(LEFT);
-  text("elapsed time: " + gameTimer.elapsedTime, 40, 100);
+  text("Time remaining: " + Math.trunc((gameTimer.time - gameTimer.elapsedTime)/1000), 40, 100);
   // show elapsed time in top left corner
 
   text("Score: " + score, 40, 40);
